@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JBMSHST ⋆ Jyoti &amp; Bhupat Mehta School of Health Sciences &amp; Technology, IIT Guwahati</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#FFF8EF;
+    --cream-deep:#FBEFDD;
+    --lilac:#E7E0FB;
+    --lilac-deep:#C9B8F5;
+    --mint:#D7F6E9;
+    --mint-deep:#9DE6C1;
+    --pink:#FFDCEA;
+    --pink-deep:#F5A9C9;
+    --banner-blue:#AEC6CF;
+    --slate:#2C3E50;
+    --slate-soft:#5b6b7a;
+    --white:#FFFFFF;
+    --shadow: 4px 4px 0 var(--slate);
+    --shadow-sm: 3px 3px 0 var(--slate);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 10% 5%, var(--banner-blue) 0%, var(--banner-blue) 14%, transparent 36%),
+      radial-gradient(circle at 90% 10%, var(--mint) 0, transparent 30%),
+      var(--cream);
+    color:var(--slate);
+    font-family:'Quicksand', sans-serif;
+    line-height:1.55;
+  }
+  h1,h2,h3,h4, .pixel-font{
+    font-family:'Press Start 2P', cursive;
+    color:var(--slate);
+    line-height:1.6;
+  }
+  .data-font{ font-family:'VT323', monospace; font-size:1.35rem; letter-spacing:.5px; }
+  a{ color:var(--slate); text-decoration:none; }
+  img{ max-width:100%; display:block; }
+  .wrap{ max-width:1180px; margin:0 auto; padding:0 22px; }
+
+  /* ---------- pixel frame / 8-bit card ---------- */
+  .pixel-frame{
+    position:relative;
+    border:3px solid var(--slate);
+    box-shadow:var(--shadow);
+    background:var(--white);
+  }
+  .pixel-frame::before, .pixel-frame::after,
+  .pixel-frame .corner-tl, .pixel-frame .corner-br{ content:""; }
+  .pixel-notch{
+    clip-path: polygon(0 10px,10px 10px,10px 0,calc(100% - 10px) 0,calc(100% - 10px) 10px,100% 10px,100% calc(100% - 10px),calc(100% - 10px) calc(100% - 10px),calc(100% - 10px) 100%,10px 100%,10px calc(100% - 10px),0 calc(100% - 10px));
+  }
+  .pixel-btn{
+    font-family:'Press Start 2P', cursive;
+    font-size:.62rem;
+    background:var(--mint-deep);
+    border:3px solid var(--slate);
+    box-shadow:var(--shadow-sm);
+    padding:12px 16px;
+    cursor:pointer;
+    display:inline-block;
+    color:var(--slate);
+    transition:transform .08s ease;
+  }
+  .pixel-btn:hover{ transform:translate(2px,2px); box-shadow:1px 1px 0 var(--slate); }
+  .pixel-btn:active{ transform:translate(3px,3px); box-shadow:0 0 0 var(--slate); }
+  .pixel-btn.alt{ background:var(--pink-deep); }
+  .pixel-btn.alt2{ background:var(--lilac-deep); }
+  .pixel-btn.ghost{ background:var(--cream); }
+
+  /* ---------- top logo banner ---------- */
+  .logo-banner{
+    background:var(--slate);
+    color:var(--cream);
+  }
+  .logo-banner .wrap{
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+    padding-top:8px; padding-bottom:8px; flex-wrap:wrap;
+  }
+  .logo-banner .logos{ display:flex; align-items:center; gap:14px; }
+  .logo-banner img.inst-logo{
+    height:50px; width:auto; background:#fff; padding:3px; border-radius:4px;
+  }
+  .logo-banner .school-title-mini{
+    font-family:'Press Start 2P', cursive; font-size:.62rem; line-height:1.5; color:var(--mint);
+  }
+  .logo-banner .contact-strip{
+    font-family:'VT323', monospace; font-size:1.05rem; display:flex; gap:16px; flex-wrap:wrap; color:var(--cream-deep);
+  }
+  .logo-banner .contact-strip a{ color:var(--pink); }
+  .logo-banner .contact-strip a:hover{ color:var(--mint-deep); text-decoration:underline; }
+
+  /* ---------- nav hub ---------- */
+  header.nav-hub{
+    background:var(--lilac);
+    border-bottom:4px solid var(--slate);
+    position:sticky; top:0; z-index:50;
+  }
+  .nav-inner{
+    display:flex; align-items:center; justify-content:space-between; gap:14px; padding:14px 0; flex-wrap:wrap;
+  }
+  .brand{ display:flex; align-items:center; gap:12px; }
+  .brand-mark{
+    width:44px; height:44px; background:var(--pink-deep); border:3px solid var(--slate); box-shadow:var(--shadow-sm);
+    display:flex; align-items:center; justify-content:center; font-family:'Press Start 2P'; font-size:.9rem;
+  }
+  .brand-text .t1{ font-family:'Press Start 2P'; font-size:.72rem; }
+  .brand-text .t2{ font-family:'VT323'; font-size:1.1rem; color:var(--slate-soft); }
+  nav.links{ display:flex; gap:10px; flex-wrap:wrap; }
+  nav.links a{
+    font-family:'VT323'; font-size:1.15rem; background:var(--white); border:3px solid var(--slate);
+    box-shadow:var(--shadow-sm); padding:7px 12px; transition:transform .08s ease;
+  }
+  nav.links a:hover{ transform:translate(2px,2px); box-shadow:1px 1px 0 var(--slate); background:var(--mint); }
+
+  /* ---------- ticker ---------- */
+  .ticker-wrap{
+    background:var(--slate); color:var(--mint-deep); overflow:hidden; border-bottom:4px solid var(--slate);
+    padding:10px 0;
+  }
+  .ticker-track{ display:flex; gap:46px; white-space:nowrap; animation:scrollTicker 26s linear infinite; width:max-content; }
+  .ticker-wrap:hover .ticker-track{ animation-play-state:paused; }
+  .ticker-track span.item{ font-family:'VT323'; font-size:1.25rem; cursor:pointer; }
+  .ticker-track span.item:hover{ color:var(--pink); text-decoration:underline; }
+  @keyframes scrollTicker{ 0%{ transform:translateX(0);} 100%{ transform:translateX(-50%);} }
+
+  /* ---------- hero ---------- */
+  .hero{ padding:64px 0 40px; }
+  .hero-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:center; }
+  .eyebrow{ font-family:'Press Start 2P'; font-size:.6rem; color:#a97fd1; margin-bottom:14px; display:inline-block; background:var(--pink); padding:6px 10px; border:2px solid var(--slate);}
+  .hero h1{ font-size:1.5rem; margin:0 0 18px; }
+  .hero p.lead{ font-family:'VT323'; font-size:1.4rem; color:var(--slate-soft); max-width:46ch; }
+  .hero-ctas{ display:flex; gap:12px; margin-top:22px; flex-wrap:wrap; }
+  .hero-art{
+    background:var(--mint); border:4px solid var(--slate); box-shadow:8px 8px 0 var(--slate);
+    aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; position:relative;
+  }
+  .hero-art svg{ width:78%; height:78%; }
+  .stat-chip{
+    position:absolute; background:var(--white); border:3px solid var(--slate); box-shadow:var(--shadow-sm);
+    font-family:'VT323'; font-size:1.05rem; padding:6px 10px;
+  }
+  .stat-chip.c1{ top:-14px; left:-14px; }
+  .stat-chip.c2{ bottom:-14px; right:-14px; }
+
+  /* ---------- mini timeline node grid (hero) — mirrors .cycle-box styling ---------- */
+  .mini-node-grid{
+    position:relative; width:84%; height:84%;
+    background-image:
+      repeating-linear-gradient(to right, transparent 0 24.9%, var(--slate) 24.9% 25.2%, transparent 25.2% 100%),
+      repeating-linear-gradient(to bottom, transparent 0 24.9%, var(--slate) 24.9% 25.2%, transparent 25.2% 100%);
+    opacity:1;
+  }
+  .mini-node-grid .grid-tint{ position:absolute; inset:0; background:var(--white); opacity:.55; }
+  .mini-node-grid .connector-svg{ position:absolute; inset:0; width:100%; height:100%; }
+  .quest-path{ animation:trailFlow 1s linear infinite; }
+  @keyframes trailFlow{ to{ stroke-dashoffset:-14; } }
+  .quest-marker-sq{
+    transform-box:fill-box; transform-origin:center;
+    animation:markerPulse .9s ease-in-out infinite;
+  }
+  @keyframes markerPulse{
+    0%,100%{ transform:scale(1); fill:#9DE6C1; }
+    50%{ transform:scale(1.35); fill:#F5A9C9; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .quest-path, .quest-flag, .node-block .nb-num, .quest-marker-sq, .node-block{ animation:none !important; }
+  }
+  .node-block{
+    position:absolute; background:var(--cream-deep); border:2px dashed var(--slate);
+    box-shadow:2px 2px 0 var(--slate); padding:4px 6px; display:flex; align-items:center; gap:5px;
+    animation:nodeBob 2s ease-in-out infinite;
+  }
+  @keyframes nodeBob{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-3px); }
+  }
+  .node-block .lbl{ font-family:'Press Start 2P'; font-size:.42rem; line-height:1.3; }
+  .node-block .nb-dot{ width:8px; height:8px; border:1.5px solid var(--slate); flex:none; }
+  .node-block .nb-num{
+    position:absolute; top:-9px; left:-9px; width:16px; height:16px;
+    background:var(--slate); color:var(--cream); border:2px solid var(--white);
+    font-family:'Press Start 2P'; font-size:.5rem; display:flex; align-items:center; justify-content:center;
+    animation:badgePulse 1.8s ease-in-out infinite;
+  }
+  @keyframes badgePulse{
+    0%,100%{ transform:scale(1); }
+    50%{ transform:scale(1.18); }
+  }
+  .node-block.nb-graphene{ top:8%; left:8%; animation-delay:-0.3s; }
+  .node-block.nb-graphene .nb-dot{ background:var(--mint-deep); }
+  .node-block.nb-graphene .nb-num{ animation-delay:-0.2s; }
+  .node-block.nb-devices{ top:8%; right:6%; animation-delay:-0.9s; }
+  .node-block.nb-devices .nb-dot{ background:var(--lilac-deep); }
+  .node-block.nb-devices .nb-num{ animation-delay:-0.65s; }
+  .node-block.nb-aihealth{ bottom:30%; right:2%; animation-delay:-1.5s; }
+  .node-block.nb-aihealth .nb-dot{ background:var(--pink-deep); }
+  .node-block.nb-aihealth .nb-num{ animation-delay:-1.1s; }
+  .node-block.nb-pharma{ bottom:6%; left:20%; animation-delay:-0.6s; }
+  .node-block.nb-pharma .nb-dot{ background:var(--mint-deep); }
+  .node-block.nb-pharma .nb-num{ animation-delay:-1.55s; }
+  .quest-flag{
+    position:absolute; font-family:'Press Start 2P'; font-size:.4rem; line-height:1.3;
+    background:var(--white); border:2px solid var(--slate); box-shadow:2px 2px 0 var(--slate);
+    padding:4px 6px; display:flex; align-items:center; gap:4px;
+  }
+  .quest-flag.start{ top:16%; left:0%; animation:flagBounce 2.2s ease-in-out infinite; }
+  .quest-flag.finish{ bottom:2%; left:46%; background:var(--mint-deep); animation:flagBounce 2.2s ease-in-out infinite; animation-delay:-1.1s; }
+  @keyframes flagBounce{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-4px); }
+  }
+  .pixel-cube{ position:absolute; width:9px; height:9px; border:1.5px solid var(--slate); }
+  .pixel-cube.cube-mint{ background:var(--mint-deep); top:38%; left:4%; }
+  .pixel-cube.cube-lilac{ background:var(--lilac-deep); top:2%; left:46%; }
+  .pixel-cube.cube-pink{ background:var(--pink-deep); bottom:2%; right:32%; }
+
+  section{ padding:46px 0; }
+  .section-head{ margin-bottom:26px; }
+  .section-head h2{ font-size:1.05rem; margin:0 0 8px; }
+  .section-head .sub{ font-family:'VT323'; color:var(--slate-soft); font-size:1.2rem; }
+  .pill{
+    display:inline-block; font-family:'Press Start 2P'; font-size:.55rem; background:var(--lilac-deep);
+    border:2px solid var(--slate); padding:5px 9px; margin-bottom:10px;
+  }
+
+  /* ---------- accordion ---------- */
+  .accordion{ display:flex; flex-direction:column; gap:12px; }
+  .acc-item{ background:var(--white); border:3px solid var(--slate); box-shadow:var(--shadow-sm); }
+  .acc-item summary{
+    list-style:none; cursor:pointer; padding:16px 18px; display:flex; align-items:center; justify-content:space-between;
+    font-family:'Press Start 2P'; font-size:.68rem; background:var(--cream-deep);
+  }
+  .acc-item summary::-webkit-details-marker{ display:none; }
+  .acc-item summary .arrow{ font-family:'VT323'; font-size:1.4rem; }
+  .acc-item[open] summary .arrow{ transform:rotate(90deg); display:inline-block; }
+  .acc-body{ padding:16px 18px; font-family:'VT323'; font-size:1.2rem; border-top:3px solid var(--slate); }
+  .acc-body a.mini-link{ display:inline-block; margin:4px 10px 4px 0; background:var(--mint); border:2px solid var(--slate); padding:4px 9px; }
+  .acc-body a.mini-link:hover{ background:var(--pink); }
+
+  /* ---------- admissions HUD ---------- */
+  .hud{ background:var(--slate); color:var(--cream); border:4px solid var(--slate); padding:0; }
+  .hud-tabs{ display:flex; flex-wrap:wrap; }
+  .hud-tabs button{
+    flex:1; min-width:150px; font-family:'Press Start 2P'; font-size:.6rem; padding:16px 10px;
+    background:var(--slate-soft); color:var(--cream); border:none; border-right:3px solid var(--slate); cursor:pointer;
+  }
+  .hud-tabs button.active{ background:var(--mint-deep); color:var(--slate); }
+  .hud-panel{ display:none; padding:22px 24px; font-family:'VT323'; font-size:1.25rem; }
+  .hud-panel.active{ display:block; }
+  .hud-panel a.pixel-btn{ margin-top:10px; }
+  .stream-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px; margin-top:16px; }
+  .stream-grid a{
+    background:var(--lilac); color:var(--slate); border:2px solid var(--mint-deep); padding:10px 12px; font-family:'VT323'; font-size:1.15rem;
+  }
+  .stream-grid a:hover{ background:var(--pink); }
+
+  /* ---------- news tabs ---------- */
+  .tabbar{ display:flex; gap:8px; margin-bottom:20px; flex-wrap:wrap; }
+  .tabbar button{
+    font-family:'Press Start 2P'; font-size:.6rem; padding:10px 14px; background:var(--white);
+    border:3px solid var(--slate); box-shadow:var(--shadow-sm); cursor:pointer;
+  }
+  .tabbar button.active{ background:var(--pink-deep); }
+  .news-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(270px,1fr)); gap:18px; }
+  .news-card{
+    background:var(--white); border:3px solid var(--slate); box-shadow:var(--shadow-sm); overflow:hidden;
+    display:block; cursor:pointer; transition:transform .1s ease, box-shadow .1s ease;
+  }
+  .news-card:hover{ transform:translate(-3px,-3px); box-shadow:7px 7px 0 var(--slate); }
+  .news-card:active{ transform:translate(1px,1px); box-shadow:2px 2px 0 var(--slate); }
+  .news-card img{ height:150px; width:100%; object-fit:cover; border-bottom:3px solid var(--slate); image-rendering:pixelated; }
+  .news-card .body{ padding:14px 16px; }
+  .news-card .tag{ font-family:'Press Start 2P'; font-size:.5rem; background:var(--mint); padding:3px 7px; display:inline-block; margin-bottom:8px; }
+  .news-card h4{ font-size:.78rem; margin:0 0 8px; }
+  .news-card p{ font-family:'VT323'; font-size:1.1rem; margin:0 0 8px; color:var(--slate-soft); }
+  .news-card .card-foot{ display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:2px; }
+  .news-card .date{ font-family:'VT323'; font-size:1rem; color:#9a8fbf; }
+  .news-card .go-link{ font-family:'Press Start 2P'; font-size:.5rem; color:#8a6fc9; white-space:nowrap; }
+  .news-card:hover .go-link{ color:var(--pink-deep); text-decoration:underline; }
+  .news-panel{ display:none; }
+  .news-panel.active{ display:block; }
+
+  /* ---------- curriculum ---------- */
+  table.curriculum{ width:100%; border-collapse:collapse; background:var(--white); border:3px solid var(--slate); }
+  table.curriculum caption{ text-align:left; font-family:'VT323'; font-size:1.1rem; color:var(--slate-soft); margin-bottom:8px; }
+  table.curriculum th, table.curriculum td{ border:2px solid var(--slate); padding:10px 12px; font-family:'VT323'; font-size:1.15rem; text-align:left; }
+  table.curriculum th{ background:var(--lilac-deep); font-family:'Press Start 2P'; font-size:.55rem; }
+  table.curriculum tr:nth-child(even) td{ background:var(--cream-deep); }
+
+  /* ---------- faculty ---------- */
+  .faculty-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:20px; margin-top:24px; }
+  .fac-card{ background:var(--white); border:3px solid var(--slate); box-shadow:var(--shadow-sm); text-align:center; padding:18px 14px; }
+  .fac-avatar{
+    width:96px; height:96px; margin:0 auto 12px; border:4px solid var(--slate); box-shadow:3px 3px 0 var(--slate);
+    image-rendering:pixelated; object-fit:cover;
+  }
+  .fac-card h4{ font-size:.72rem; margin:0 0 6px; }
+  .fac-card .role{ font-family:'VT323'; font-size:1.05rem; color:var(--slate-soft); margin-bottom:10px; }
+  .fac-card .links{ display:flex; gap:6px; justify-content:center; flex-wrap:wrap; }
+  .fac-card .links a{
+    font-family:'VT323'; font-size:.95rem; background:var(--mint); border:2px solid var(--slate); padding:3px 7px;
+  }
+  .fac-card .links a.li{ background:var(--pink); }
+  .fac-card .links a:hover{ background:var(--lilac-deep); }
+
+  /* ---------- timeline ---------- */
+  .cycle-selector{ display:flex; flex-wrap:wrap; gap:8px; margin-bottom:20px; }
+  .cycle-selector button{
+    font-family:'VT323'; font-size:1.15rem; padding:8px 14px; background:var(--white); border:3px solid var(--slate);
+    box-shadow:var(--shadow-sm); cursor:pointer;
+  }
+  .cycle-selector button.active{ background:var(--mint-deep); }
+  .cycle-panel{ display:none; background:var(--white); border:3px solid var(--slate); box-shadow:var(--shadow); padding:20px 24px; }
+  .cycle-panel.active{ display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:16px; }
+  .cycle-box{ background:var(--cream-deep); border:2px dashed var(--slate); padding:12px 14px; font-family:'VT323'; font-size:1.15rem; }
+  .cycle-box .lbl{ font-family:'Press Start 2P'; font-size:.55rem; display:block; margin-bottom:8px; }
+
+  /* ---------- footer ---------- */
+  footer{ background:var(--slate); color:var(--cream-deep); margin-top:60px; border-top:5px solid var(--slate); }
+  .footer-top{ padding:44px 0 30px; }
+  .footer-cols{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:30px; }
+  .footer-cols h5{ font-family:'Press Start 2P'; font-size:.62rem; color:var(--mint-deep); margin:0 0 14px; }
+  .footer-cols ul{ list-style:none; padding:0; margin:0; font-family:'VT323'; font-size:1.15rem; display:flex; flex-direction:column; gap:8px; }
+  .footer-cols a{ color:var(--cream-deep); }
+  .footer-cols a:hover{ color:var(--pink); text-decoration:underline; }
+  .footer-note{ font-family:'VT323'; font-size:1.05rem; color:#b9c3cd; max-width:60ch; margin-top:20px; }
+  .credits-bar{ background:#1c2732; padding:16px 0; text-align:center; font-family:'VT323'; font-size:1.1rem; }
+
+  @media(max-width:860px){
+    .hero-grid{ grid-template-columns:1fr; }
+    nav.links{ width:100%; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOP LOGO BANNER ============ -->
+<div class="logo-banner">
+  <div class="wrap">
+    <div class="logos">
+      <a href="https://iitg.ac.in" target="_blank" rel="noopener"><img class="inst-logo" src="https://www.iitg.ac.in/core/img/iitglogo.jpg" alt="IIT Guwahati institute logo"></a>
+      <a href="https://www.iitg.ac.in/shst/index.php" target="_blank" rel="noopener"><img class="inst-logo" src="https://www.iitg.ac.in/shst/images/logo/shst_logo.png" alt="JBMSHST school crest logo"></a>
+      <span class="school-title-mini">JBMSHST<br>IIT&nbsp;Guwahati</span>
+    </div>
+    <div class="contact-strip">
+      <a href="mailto:hochst@iitg.ac.in">✉ hochst@iitg.ac.in</a>
+      <a href="mailto:shst_off@iitg.ac.in">✉ shst_off@iitg.ac.in</a>
+      <a href="mailto:sppcshst@iitg.ac.in">✉ sppcshst@iitg.ac.in</a>
+      <span>☎ +91 361 258 3075</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============ NAV HUB ============ -->
+<header class="nav-hub">
+  <div class="wrap nav-inner">
+    <div class="brand">
+      <div class="brand-mark">🧬</div>
+      <div class="brand-text">
+        <div class="t1">JBMSHST</div>
+        <div class="t2">health·tech portal</div>
+      </div>
+    </div>
+    <nav class="links">
+      <a href="https://iitg.ac.in" target="_blank" rel="noopener">IITG Main</a>
+      <a href="https://www.iitg.ac.in/shst/index.php" target="_blank" rel="noopener">JBMSHST Home</a>
+      <a href="https://online.iitg.ac.in/sa/" target="_blank" rel="noopener">Student SSO</a>
+      <a href="https://login.microsoftonline.com/" target="_blank" rel="noopener">Webmail</a>
+      <a href="#admissions">Admissions</a>
+      <a href="#faculty">Faculty</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ NOTICE TICKER ============ -->
+<div class="ticker-wrap">
+  <div class="wrap">
+    <div class="ticker-track" id="tickerTrack">
+      <!-- duplicated once in JS for seamless loop -->
+    </div>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">est. 2021 · Mehta Family Foundation school</span>
+      <h1>Jyoti &amp; Bhupat Mehta School of<br>Health Sciences &amp; Technology</h1>
+      <p class="lead">IIT Guwahati's engineers, biologists and clinicians build the next generation of biomedical technology — training biomedical engineers to lead in the health sector, one hands-on lab session at a time.</p>
+      <div class="hero-ctas">
+        <a class="pixel-btn" href="#admissions">▶ Explore Admissions</a>
+        <a class="pixel-btn alt2" href="#faculty">👩‍🔬 Meet Faculty</a>
+        <a class="pixel-btn alt" href="https://www.iitg.ac.in/shst/index.php" target="_blank" rel="noopener">🏫 Official Site</a>
+      </div>
+    </div>
+    <div class="hero-art pixel-frame">
+      <div class="stat-chip c1">HP ❤ 25 faculty &amp; staff</div>
+      <div class="stat-chip c2">LVL M.Tech · PhD · IPDF</div>
+      <div class="mini-node-grid">
+        <div class="grid-tint"></div>
+        <svg class="connector-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <defs>
+            <marker id="qArrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="0">
+              <rect class="quest-marker-sq" x="2" y="2" width="6" height="6" fill="#9DE6C1" stroke="#2C3E50" stroke-width="1"/>
+            </marker>
+          </defs>
+          <path class="quest-path" d="M10 20 L23 14 L79 14 L83 64 L32 88 L55 88" stroke="#9DE6C1" stroke-width="2" fill="none" stroke-dasharray="4 3" marker-mid="url(#qArrow)" marker-end="url(#qArrow)"/>
+        </svg>
+        <div class="quest-flag start">🚩 START</div>
+        <div class="node-block nb-graphene"><span class="nb-num">1</span><span class="nb-dot"></span><span class="lbl">Graphene</span></div>
+        <div class="node-block nb-devices"><span class="nb-num">2</span><span class="nb-dot"></span><span class="lbl">Devices</span></div>
+        <div class="node-block nb-aihealth"><span class="nb-num">3</span><span class="nb-dot"></span><span class="lbl">AI Health</span></div>
+        <div class="node-block nb-pharma"><span class="nb-num">4</span><span class="nb-dot"></span><span class="lbl">Pharma</span></div>
+        <div class="quest-flag finish">🏆 IMPACT</div>
+        <span class="pixel-cube cube-mint"></span>
+        <span class="pixel-cube cube-lilac"></span>
+        <span class="pixel-cube cube-pink"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUICK ACCESS ACCORDION ============ -->
+<section class="wrap">
+  <div class="section-head">
+    <span class="pill">Quick Access</span>
+    <h2>Peek Into the School</h2>
+    <p class="sub">Tap a tile to expand — mirrors the quick-links strip on the official homepage.</p>
+  </div>
+  <div class="accordion">
+    <details class="acc-item" open>
+      <summary>💗 Mehta Family Foundation <span class="arrow">▸</span></summary>
+      <div class="acc-body">
+        JBMSHST is the 5th school established by the Bhupat &amp; Jyoti Mehta Family Foundation (MFF) and its 3rd healthcare-focused school in India, alongside sister schools at IIT Madras and IIT Kanpur.
+        <br><a class="mini-link" href="https://www.iitg.ac.in/shst/mff.php" target="_blank" rel="noopener">MFF @ JBMSHST →</a>
+        <a class="mini-link" href="https://mehtafamilyfoundation.org/" target="_blank" rel="noopener">Mehta Family Foundation →</a>
+      </div>
+    </details>
+    <details class="acc-item">
+      <summary>🏫 All Mehta Family Schools <span class="arrow">▸</span></summary>
+      <div class="acc-body">
+        Browse every school the Foundation has supported across the IIT system, including Data Science &amp; AI schools and Engineering-in-Medicine centres.
+        <br><a class="mini-link" href="https://www.iitg.ac.in/shst/all_mff_school.php" target="_blank" rel="noopener">See all Mehta schools →</a>
+      </div>
+    </details>
+    <details class="acc-item">
+      <summary>🧪 Projects <span class="arrow">▸</span></summary>
+      <div class="acc-body">
+        Ongoing sponsored and collaborative research projects run by JBMSHST faculty and scholars, spanning biosensors, biomaterials and public-health engineering.
+        <br><a class="mini-link" href="https://www.iitg.ac.in/shst/projects.php" target="_blank" rel="noopener">View projects →</a>
+      </div>
+    </details>
+    <details class="acc-item">
+      <summary>📜 Patents <span class="arrow">▸</span></summary>
+      <div class="acc-body">
+        Patents filed by the school covering diagnostics, devices and materials for conditions ranging from COVID-19 and diabetes to osteoarthritis and rabies.
+        <br><a class="mini-link" href="https://www.iitg.ac.in/shst/patents_2024.php" target="_blank" rel="noopener">View patents →</a>
+      </div>
+    </details>
+    <details class="acc-item">
+      <summary>📚 Publications <span class="arrow">▸</span></summary>
+      <div class="acc-body">
+        The full running list of journal articles, conference papers and book chapters from JBMSHST faculty and their students.
+        <br><a class="mini-link" href="https://www.iitg.ac.in/shst/publications_2024.php" target="_blank" rel="noopener">View publications →</a>
+      </div>
+    </details>
+    <details class="acc-item">
+      <summary>🔬 Laboratories <span class="arrow">▸</span></summary>
+      <div class="acc-body">
+        Home to the SWASTHA project's ISO Class 5 &amp; 6 cleanrooms at the Centre for Nanotechnology, supporting nanoelectronics and biomedical device fabrication.
+        <br><a class="mini-link" href="https://www.iitg.ac.in/shst/laboratories.php" target="_blank" rel="noopener">Explore labs →</a>
+      </div>
+    </details>
+    <details class="acc-item">
+      <summary>🌏 International Students Program <span class="arrow">▸</span></summary>
+      <div class="acc-body">
+        Joint international programs and exchange opportunities connecting JBMSHST scholars with partner medical-engineering schools abroad.
+        <br><a class="mini-link" href="https://www.iitg.ac.in/shst/joint_international_programs.php" target="_blank" rel="noopener">Learn more →</a>
+      </div>
+    </details>
+    <details class="acc-item">
+      <summary>🎉 Student Club <span class="arrow">▸</span></summary>
+      <div class="acc-body">
+        The school's student-run club organising outreach, workshops and peer-mentoring within JBMSHST.
+        <br><a class="mini-link" href="https://www.iitg.ac.in/shst/student_club.php" target="_blank" rel="noopener">Meet the club →</a>
+      </div>
+    </details>
+    <details class="acc-item">
+      <summary>💼 Placements <span class="arrow">▸</span></summary>
+      <div class="acc-body">
+        Placement records and recruiter information for M.Tech graduates of the Biomedical Science and Engineering program.
+        <br><a class="mini-link" href="https://www.iitg.ac.in/shst/placement.php" target="_blank" rel="noopener">Placement details →</a>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ============ ADMISSIONS HUD ============ -->
+<section class="wrap" id="admissions">
+  <div class="section-head">
+    <span class="pill">Admissions HUD</span>
+    <h2>Choose Your Entry Quest 🎮</h2>
+    <p class="sub">Pick a channel — every stream below leads to a real application step.</p>
+  </div>
+  <div class="hud pixel-frame">
+    <div class="hud-tabs">
+      <button class="active" data-tab="phd">🎓 Ph.D. Track</button>
+      <button data-tab="gate">📐 GATE Portal</button>
+      <button data-tab="mou">🤝 MoU Channels</button>
+    </div>
+    <div class="hud-panel active" data-panel="phd">
+      Ph.D. admissions run through the Institute's central Academic Affairs admission portal. The school's most recent cycle listed a deadline of <strong>28 Oct, 5:00 PM IST</strong> — always confirm the live date on the portal below.
+      <br><br>
+      <a class="pixel-btn" href="https://iitg.ac.in/acad/admission/" target="_blank" rel="noopener">Open PhD Admission Portal ▶</a>
+      <a class="pixel-btn ghost" href="https://www.iitg.ac.in/shst/assets/PDF/Research_areas_school_JBMSHST.pdf" target="_blank" rel="noopener">School Research Areas (PDF)</a>
+    </div>
+    <div class="hud-panel" data-panel="gate">
+      M.Tech in Biomedical Science &amp; Engineering is primarily admitted through a valid <strong>GATE</strong> score, with the cycle aligned to the national GATE calendar.
+      <br><br>
+      <a class="pixel-btn" href="https://www.iitg.ac.in/gate-jam/" target="_blank" rel="noopener">GATE / JAM Portal ▶</a>
+    </div>
+    <div class="hud-panel" data-panel="mou">
+      Select seats are also filled through institutional MoU / collaborative-programme channels arranged by IITG's Alumni, Corporate &amp; International Relations office.
+      <br><br>
+      <a class="pixel-btn" href="https://www.iitg.ac.in/aer/mou.php" target="_blank" rel="noopener">MoU Office ▶</a>
+    </div>
+    <div class="hud-panel" style="display:block; padding:0 24px 24px;">
+      <p class="data-font" style="margin-bottom:4px;">Other recognised entry streams:</p>
+      <div class="stream-grid">
+        <a href="https://www.iitg.ac.in/gate-jam/" target="_blank" rel="noopener">➜ GATE (M.Tech)</a>
+        <a href="https://iitg.ac.in/acad/admission/" target="_blank" rel="noopener">➜ CSIR-NET / UGC-NET (PhD eligibility)</a>
+        <a href="https://www.iitg.ac.in/gate-jam/" target="_blank" rel="noopener">➜ IIT-JAM (BS lateral/PG routes)</a>
+        <a href="https://iitg.ac.in/acad/admission/" target="_blank" rel="noopener">➜ GAT-B (Biotech PhD eligibility)</a>
+        <a href="https://www.iitg.ac.in/aer/mou.php" target="_blank" rel="noopener">➜ MoU / Collaborative Channels</a>
+        <a href="https://iitg.ac.in/acad/admission/" target="_blank" rel="noopener">➜ Direct Admission for IIT B.Tech Graduates</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NEWS & EVENTS ============ -->
+<section class="wrap" id="lab-bench">
+  <div class="section-head">
+    <span class="pill">News &amp; Events</span>
+    <h2>Fresh From the Lab Bench 🧫</h2>
+    <p class="sub">A sampling of recent JBMSHST publications, news and talks (2024 – 2026) — tap any card to open the official source in a new tab.</p>
+  </div>
+  <div class="tabbar">
+    <button class="active" data-newstab="pub">Publications</button>
+    <button data-newstab="news">News</button>
+    <button data-newstab="event">Events</button>
+  </div>
+
+  <div class="news-panel active" data-newspanel="pub">
+    <div class="news-grid">
+      <a class="news-card" href="https://doi.org/10.1016/j.colsurfa.2024.135029" target="_blank" rel="noopener">
+        <img src="https://placehold.co/400x260/D7F6E9/2C3E50?font=vt323&text=Graphene+%2B+Riboflavin" alt="Graphene research illustration">
+        <div class="body">
+          <span class="tag">Publication</span>
+          <h4>Dr. Rajiv K. Kar &amp; team</h4>
+          <p>Induced surface process of graphene variants' dispersion with biocompatible riboflavin, published in Colloids and Surfaces A.</p>
+          <div class="card-foot"><span class="date">Aug 2024</span><span class="go-link">Read paper ▸</span></div>
+        </div>
+      </a>
+      <a class="news-card" href="https://www.sciencedirect.com/science/article/pii/S0304383525000485" target="_blank" rel="noopener">
+        <img src="https://placehold.co/400x260/FFDCEA/2C3E50?font=vt323&text=Ribosome+Biogenesis" alt="Ribosome biogenesis illustration">
+        <div class="body">
+          <span class="tag">Publication</span>
+          <h4>Dr. Sanjib Chaudhary &amp; team</h4>
+          <p>Ribosome biogenesis, altered metabolism and ribotoxic stress response in the PDAC tumor microenvironment — Cancer Letters.</p>
+          <div class="card-foot"><span class="date">Jan 2025</span><span class="go-link">Read paper ▸</span></div>
+        </div>
+      </a>
+      <a class="news-card" href="https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0013791" target="_blank" rel="noopener">
+        <img src="https://placehold.co/400x260/E7E0FB/2C3E50?font=vt323&text=Tea-Estate+Rabies+Study" alt="Rabies research illustration">
+        <div class="body">
+          <span class="tag">Publication</span>
+          <h4>Dr. Harish Kumar Tiwari &amp; team</h4>
+          <p>"Two-leaves and many bites": profiling dog-bites and rabies prophylaxis adherence in tea-estate communities of Udalguri, Assam — PLOS NTDs.</p>
+          <div class="card-foot"><span class="date">Dec 2025</span><span class="go-link">Read paper ▸</span></div>
+        </div>
+      </a>
+      <a class="news-card" href="https://www.sciencedirect.com/science/article/pii/S0149763424003038?via%3Dihub" target="_blank" rel="noopener">
+        <img src="https://placehold.co/400x260/FFF8EF/2C3E50?font=vt323&text=Brain+Plasticity" alt="Brain plasticity illustration">
+        <div class="body">
+          <span class="tag">Publication</span>
+          <h4>Dr. Subrata Pramanik &amp; team</h4>
+          <p>High-impact SCI journal publication on Brain Development and Plasticity — Neuroscience &amp; Biobehavioral Reviews.</p>
+          <div class="card-foot"><span class="date">Jul 2024</span><span class="go-link">Read paper ▸</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="news-panel" data-newspanel="news">
+    <div class="news-grid">
+      <a class="news-card" href="https://www.iitg.ac.in/shst/assets/PDF/vaccination_udalguri.pdf" target="_blank" rel="noopener">
+        <img src="https://placehold.co/400x260/D7F6E9/2C3E50?font=vt323&text=Rabies+Vaccination+Drive" alt="Rabies vaccination drive">
+        <div class="body">
+          <span class="tag">News</span>
+          <h4>80% anti-rabies coverage in Udalguri</h4>
+          <p>A field initiative led by Dr. Harish Kumar Tiwari &amp; team (DBT/Wellcome Trust India Alliance) achieved 80% anti-rabies vaccination coverage among free-roaming dogs in Udalguri town.</p>
+          <div class="card-foot"><span class="date">Jun 2026</span><span class="go-link">Read notice ▸</span></div>
+        </div>
+      </a>
+      <a class="news-card" href="https://www.iitg.ac.in/shst/assets/PDF/Rabies_%20The%20cruel%20and%20expensive%20disease%20of%20India%E2%80%99s%20most%20impoverished%20-%20The%20Hindu.pdf" target="_blank" rel="noopener">
+        <img src="https://placehold.co/400x260/FFDCEA/2C3E50?font=vt323&text=The+Hindu+Op-Ed" alt="Newspaper op-ed illustration">
+        <div class="body">
+          <span class="tag">News</span>
+          <h4>Op-ed in The Hindu</h4>
+          <p>Dr. Harish Kumar Tiwari authored "Rabies: the cruel and expensive disease of India's most impoverished."</p>
+          <div class="card-foot"><span class="date">Dec 2025</span><span class="go-link">Read article ▸</span></div>
+        </div>
+      </a>
+      <a class="news-card" href="https://www.iitg.ac.in/iitg_press_details?p=99/iit-guwahati-pioneers-nanotech-advancements-with-inauguration-of-swastha-project-and-iso-5-and-6-clean-room-facilities" target="_blank" rel="noopener">
+        <img src="https://placehold.co/400x260/E7E0FB/2C3E50?font=vt323&text=SWASTHA+Cleanroom" alt="Cleanroom facility illustration">
+        <div class="body">
+          <span class="tag">News</span>
+          <h4>SWASTHA project inaugurated</h4>
+          <p>IIT Guwahati pioneers nanotech advancements with inauguration of the SWASTHA project and ISO Class 5 &amp; 6 cleanroom facilities.</p>
+          <div class="card-foot"><span class="date">Feb 2024</span><span class="go-link">Read notice ▸</span></div>
+        </div>
+      </a>
+      <a class="news-card" href="https://www.iitg.ac.in/shst/index.php" target="_blank" rel="noopener">
+        <img src="https://placehold.co/400x260/FFF8EF/2C3E50?font=vt323&text=Best+Poster+Award" alt="Award ceremony illustration">
+        <div class="body">
+          <span class="tag">News</span>
+          <h4>Best Poster Award, APCRICON 2024</h4>
+          <p>Dr. Satwik Chalasani won the Best Poster Award, supervised by Dr. Harish Tiwari.</p>
+          <div class="card-foot"><span class="date">Aug 2024</span><span class="go-link">See on JBMSHST ▸</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="news-panel" data-newspanel="event">
+    <div class="news-grid">
+      <a class="news-card" href="https://www.iitg.ac.in/shst/images/Latest_News_&_Update/IMG_2917%20(1).jpg" target="_blank" rel="noopener">
+        <img src="https://placehold.co/400x260/D7F6E9/2C3E50?font=vt323&text=Digital+Mental+Health+Talk" alt="Talk illustration">
+        <div class="body">
+          <span class="tag">Event</span>
+          <h4>Invited talk — Dr. Arka Ghosh</h4>
+          <p>"Therapy for moments of need: the promise of digital mental health interventions in India."</p>
+          <div class="card-foot"><span class="date">21 Mar 2025</span><span class="go-link">Event details ▸</span></div>
+        </div>
+      </a>
+      <a class="news-card" href="https://www.iitg.ac.in/shst/index.php" target="_blank" rel="noopener">
+        <img src="https://placehold.co/400x260/FFDCEA/2C3E50?font=vt323&text=Soft+E-Skin+Talk" alt="Talk illustration">
+        <div class="body">
+          <span class="tag">Event</span>
+          <h4>Invited talk — Dr. Abhijit Chandra Roy</h4>
+          <p>"Soft Electronic Skin for Next-Generation Healthcare."</p>
+          <div class="card-foot"><span class="date">6 Jan 2025</span><span class="go-link">See on JBMSHST ▸</span></div>
+        </div>
+      </a>
+      <a class="news-card" href="https://www.iitg.ac.in/shst/assets/PDF/JBMSHST%20Booklet%20Final%20V3%20LQ_1.pdf" target="_blank" rel="noopener">
+        <img src="https://placehold.co/400x260/E7E0FB/2C3E50?font=vt323&text=JBMSHST+Magazine" alt="Magazine illustration">
+        <div class="body">
+          <span class="tag">Event</span>
+          <h4>First JBMSHST magazine released</h4>
+          <p>The school's first internal magazine booklet was released to showcase student and faculty work.</p>
+          <div class="card-foot"><span class="date">31 Dec 2024</span><span class="go-link">Open booklet ▸</span></div>
+        </div>
+      </a>
+      <a class="news-card" href="https://www.iitg.ac.in/shst/index.php" target="_blank" rel="noopener">
+        <img src="https://placehold.co/400x260/FFF8EF/2C3E50?font=vt323&text=Analytical+%26+Microbial+Workshop" alt="Workshop illustration">
+        <div class="body">
+          <span class="tag">Event</span>
+          <h4>Hands-on workshop, SERB-funded</h4>
+          <p>One-day hands-on session on analytical and microbial techniques at the Centre for Nanotechnology.</p>
+          <div class="card-foot"><span class="date">20 Mar 2024</span><span class="go-link">See on JBMSHST ▸</span></div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ACADEMIC & FACULTY ============ -->
+<section class="wrap" id="faculty">
+  <div class="section-head">
+    <span class="pill">Academic &amp; Faculty</span>
+    <h2>Curriculum + The People Behind It 👩‍⚕️👨‍🔬</h2>
+    <p class="sub">An illustrative course map (HT 5xx–6xx numbering convention) alongside the school's core faculty roster.</p>
+  </div>
+
+  <table class="curriculum">
+    <caption>Sample Biomedical Science &amp; Engineering course map — illustrative numbering, always confirm against the current curriculum document.</caption>
+    <thead>
+      <tr><th>Code</th><th>Course Title</th><th>Level</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>HT 501</td><td>Human Physiology for Engineers</td><td>M.Tech Core</td></tr>
+      <tr><td>HT 512</td><td>Biomedical Instrumentation</td><td>M.Tech Core</td></tr>
+      <tr><td>HT 524</td><td>Biomaterials &amp; Tissue Engineering</td><td>M.Tech Core</td></tr>
+      <tr><td>HT 536</td><td>Biosensors &amp; Diagnostics</td><td>M.Tech Elective</td></tr>
+      <tr><td>HT 548</td><td>Medical Imaging Systems</td><td>M.Tech Elective</td></tr>
+      <tr><td>HT 560</td><td>Nanotechnology in Medicine</td><td>M.Tech Elective</td></tr>
+      <tr><td>HT 601</td><td>Advanced Topics in Health Data Science</td><td>PhD Coursework</td></tr>
+      <tr><td>HT 616</td><td>Seminar &amp; Research Methodology</td><td>PhD Coursework</td></tr>
+    </tbody>
+  </table>
+
+  <div class="faculty-grid">
+    <div class="fac-card">
+      <img class="fac-avatar" src="https://placehold.co/200x200/E7E0FB/2C3E50?font=vt323&text=SK" alt="Prof. Subramani Kanagaraj avatar">
+      <h4>Prof. Subramani Kanagaraj</h4>
+      <div class="role">Professor &amp; Head, JBMSHST</div>
+      <div class="links">
+        <a href="mailto:hochst@iitg.ac.in">✉ Email</a>
+        <a class="li" href="https://www.iitg.ac.in/mech/faculty/kanagaraj/" target="_blank" rel="noopener">Profile</a>
+      </div>
+    </div>
+    <div class="fac-card">
+      <img class="fac-avatar" src="https://placehold.co/200x200/D7F6E9/2C3E50?font=vt323&text=RK" alt="Dr. Rajiv K. Kar avatar">
+      <h4>Dr. Rajiv K. Kar</h4>
+      <div class="role">Assistant Professor</div>
+      <div class="links">
+        <a href="mailto:rajivkar@iitg.ac.in">✉ Email</a>
+        <a class="li" href="https://scholar.google.co.in/citations?user=T6wc4JoAAAAJ" target="_blank" rel="noopener">Scholar</a>
+      </div>
+    </div>
+    <div class="fac-card">
+      <img class="fac-avatar" src="https://placehold.co/200x200/FFDCEA/2C3E50?font=vt323&text=RA" alt="Dr. Rahul Agarwal avatar">
+      <h4>Dr. Rahul Agarwal</h4>
+      <div class="role">Assistant Professor</div>
+      <div class="links">
+        <a href="mailto:rahulag@iitg.ac.in">✉ Email</a>
+        <a class="li" href="https://scholar.google.co.in/citations?user=-MrmLYcAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+      </div>
+    </div>
+    <div class="fac-card">
+      <img class="fac-avatar" src="https://placehold.co/200x200/FFF8EF/2C3E50?font=vt323&text=EF" alt="Dr. Erwin Fuhrer avatar">
+      <h4>Dr. Erwin Fuhrer</h4>
+      <div class="role">Assistant Professor</div>
+      <div class="links">
+        <a href="mailto:erwin@iitg.ac.in">✉ Email</a>
+        <a class="li" href="https://scholar.google.de/citations?user=-5gknYgAAAAJ&hl=de" target="_blank" rel="noopener">Scholar</a>
+      </div>
+    </div>
+    <div class="fac-card">
+      <img class="fac-avatar" src="https://placehold.co/200x200/E7E0FB/2C3E50?font=vt323&text=RB" alt="Dr. Raju Bej avatar">
+      <h4>Dr. Raju Bej</h4>
+      <div class="role">Assistant Professor</div>
+      <div class="links">
+        <a href="mailto:rajubej@iitg.ac.in">✉ Email</a>
+        <a class="li" href="https://scholar.google.com/citations?user=bZKuZpIAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+      </div>
+    </div>
+    <div class="fac-card">
+      <img class="fac-avatar" src="https://placehold.co/200x200/D7F6E9/2C3E50?font=vt323&text=RJ" alt="Dr. Ritika Jain avatar">
+      <h4>Dr. Ritika Jain</h4>
+      <div class="role">Assistant Professor</div>
+      <div class="links">
+        <a href="mailto:rjain1992@iitg.ac.in">✉ Email</a>
+        <a class="li" href="https://scholar.google.com/citations?user=6wJMy9UAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+      </div>
+    </div>
+    <div class="fac-card">
+      <img class="fac-avatar" src="https://placehold.co/200x200/FFDCEA/2C3E50?font=vt323&text=AC" alt="Dr. Aritra Chatterjee avatar">
+      <h4>Dr. Aritra Chatterjee</h4>
+      <div class="role">Assistant Professor</div>
+      <div class="links">
+        <a href="mailto:caritra@iitg.ac.in">✉ Email</a>
+        <a class="li" href="https://scholar.google.com/citations?user=R4GLFtcAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+      </div>
+    </div>
+    <div class="fac-card">
+      <img class="fac-avatar" src="https://placehold.co/200x200/FFF8EF/2C3E50?font=vt323&text=BL" alt="Dr. Bhrigu Kumar Lahkar avatar">
+      <h4>Dr. Bhrigu Kumar Lahkar</h4>
+      <div class="role">Assistant Professor</div>
+      <div class="links">
+        <a href="mailto:bklahkar@iitg.ac.in">✉ Email</a>
+        <a class="li" href="https://scholar.google.com/citations?user=n3NYi-YAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+      </div>
+    </div>
+  </div>
+  <p class="data-font" style="margin-top:14px; color:var(--slate-soft);">Full roster (associate &amp; visiting faculty, fellows) lives on the <a href="https://www.iitg.ac.in/shst/head.php" target="_blank" rel="noopener" style="text-decoration:underline;">official People page</a>.</p>
+</section>
+
+<!-- ============ TIMELINES ============ -->
+<section class="wrap">
+  <div class="section-head">
+    <span class="pill">Timelines</span>
+    <h2>Academic Cycle Select 🕹️</h2>
+    <p class="sub">Illustrative admission-cycle windows for GATE/M.Tech and PhD tracks — confirm exact dates on the live admission portal each year.</p>
+  </div>
+  <div class="cycle-selector" id="cycleSelector"></div>
+  <div id="cyclePanels"></div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap footer-top">
+    <div class="footer-cols">
+      <div>
+        <h5>🎒 Student Resources</h5>
+        <ul>
+          <li><a href="https://online.iitg.ac.in/sa/" target="_blank" rel="noopener">Student Affairs Portal</a></li>
+          <li><a href="https://login.microsoftonline.com/" target="_blank" rel="noopener">IITG Webmail</a></li>
+          <li><a href="https://www.iitg.ac.in/acad/" target="_blank" rel="noopener">Academic Affairs Central</a></li>
+          <li><a href="https://www.iitg.ac.in/lib/" target="_blank" rel="noopener">Library</a></li>
+          <li><a href="https://www.iitg.ac.in/sab/" target="_blank" rel="noopener">Students' Academic Board</a></li>
+          <li><a href="https://www.iitg.ac.in/gate-jam/" target="_blank" rel="noopener">GATE/JAM</a></li>
+          <li><a href="https://www.iitg.ac.in/acad/interdisci.php" target="_blank" rel="noopener">Ph.D. in Interdisciplinary Research</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>🔬 Research Resources</h5>
+        <ul>
+          <li><a href="https://www.iitg.ac.in/rnd/ongoingProj.html" target="_blank" rel="noopener">Latest Research</a></li>
+          <li><a href="http://isiknowledge.com/" target="_blank" rel="noopener">Web Of Science</a></li>
+          <li><a href="https://www.iitg.ac.in/lib/journalsearch.php" target="_blank" rel="noopener">Digital Repository</a></li>
+          <li><a href="http://portal.acm.org/portal.cfm" target="_blank" rel="noopener">ACM Digital Library</a></li>
+          <li><a href="https://intranet.iitg.ac.in/lib/more.php" target="_blank" rel="noopener">Online E-Resources</a></li>
+          <li><a href="https://intranet.iitg.ac.in/lib/cpdepartmentwise2023.php" target="_blank" rel="noopener">Dept-wise Journals/Database 2023</a></li>
+          <li><a href="https://www.iitg.ac.in/rnd/" target="_blank" rel="noopener">R&amp;D Office</a></li>
+          <li><a href="https://www.iitg.ac.in/rnd/ongoingProjCoE.html" target="_blank" rel="noopener">Centre Of Excellences</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>🔗 Other Links</h5>
+        <ul>
+          <li><a href="https://iitg.ac.in/iitg_faculty_reqr" target="_blank" rel="noopener">Faculty Recruitment</a></li>
+          <li><a href="https://iitg.ac.in/" target="_blank" rel="noopener">IITG Main Website</a></li>
+          <li><a href="https://www.iitg.ac.in/phones/" target="_blank" rel="noopener">Telephone Directory</a></li>
+          <li><a href="https://www.iitsystem.ac.in/" target="_blank" rel="noopener">IIT Council Portal</a></li>
+          <li><a href="https://www.iitg.ac.in/groff/" target="_blank" rel="noopener">Green Energy Initiative</a></li>
+          <li><a href="https://www.iitg.ac.in/campusmap/" target="_blank" rel="noopener">IITG Campus Map</a></li>
+          <li><a href="https://www.iitg.ac.in/iitg_page_details?page=5/visitor-s-information" target="_blank" rel="noopener">Visitor's Information</a></li>
+          <li><a href="https://www.iitg.ac.in/shst/alakesh_bezbaruah.php" target="_blank" rel="noopener">Our Developer Team</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="credits-bar">
+    Copyright © 2026, Jyoti and Bhupat Mehta School of Health Sciences and Technology | All Rights Reserved. Designed, Developed &amp; Maintained by IITG Student | IIT Guwahati.
+  </div>
+</footer>
+
+<script>
+  // ---------- notice ticker ----------
+  const notices = [
+    { text: "📢 IPDF 2026 Results Announced! Check the results →", href: "https://www.iitg.ac.in/shst/assets/PDF/ipdf_2026.pdf" },
+    { text: "📢 Ph.D. Admissions open — apply via the central portal →", href: "https://iitg.ac.in/acad/admission/" },
+    { text: "📢 M.Tech in Biomedical Science & Engineering — GATE-based intake ongoing →", href: "https://www.iitg.ac.in/gate-jam/" },
+    { text: "📢 IPDF 2025 Waiting List published →", href: "https://www.iitg.ac.in/shst/index.php" },
+    { text: "📢 School research areas (PDF) →", href: "https://www.iitg.ac.in/shst/assets/PDF/Research_areas_school_JBMSHST.pdf" }
+  ];
+  const track = document.getElementById('tickerTrack');
+  function renderTicker(){
+    const html = notices.map(n => `<span class="item" data-href="${n.href}">${n.text}</span>`).join('');
+    track.innerHTML = html + html; // duplicate for seamless scroll
+  }
+  renderTicker();
+  track.addEventListener('click', (e) => {
+    const item = e.target.closest('.item');
+    if(item){ window.open(item.dataset.href, '_blank'); }
+  });
+
+  // ---------- admissions HUD tabs ----------
+  document.querySelectorAll('.hud-tabs button').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.hud-tabs button').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.hud-panel[data-panel]').forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelector(`.hud-panel[data-panel="${btn.dataset.tab}"]`).classList.add('active');
+    });
+  });
+
+  // ---------- news tabs ----------
+  document.querySelectorAll('.tabbar button').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.tabbar button').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.news-panel').forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelector(`.news-panel[data-newspanel="${btn.dataset.newstab}"]`).classList.add('active');
+    });
+  });
+
+  // ---------- timeline cycles ----------
+  const cycles = [
+    { yr:"2024–25", gate:"GATE score window: Jan–Feb 2024", phd:"PhD Autumn interviews: May–Jun 2024 · Spring: Nov–Dec 2024", tech:"M.Tech intake: Jul 2024" },
+    { yr:"2025–26", gate:"GATE score window: Jan–Feb 2025", phd:"PhD Autumn interviews: May–Jun 2025 · Spring: Nov–Dec 2025 (deadline sample: 28 Oct 2025, 5pm IST)", tech:"M.Tech intake: Jul 2025" },
+    { yr:"2026–27", gate:"GATE score window: Jan–Feb 2026", phd:"PhD Autumn interviews: May–Jun 2026 · Spring: Nov–Dec 2026", tech:"M.Tech intake: Jul 2026" },
+    { yr:"2027–28", gate:"GATE score window: Jan–Feb 2027", phd:"PhD Autumn interviews: May–Jun 2027 · Spring: Nov–Dec 2027", tech:"M.Tech intake: Jul 2027" },
+    { yr:"2028–29", gate:"GATE score window: Jan–Feb 2028", phd:"PhD Autumn interviews: May–Jun 2028 · Spring: Nov–Dec 2028", tech:"M.Tech intake: Jul 2028" },
+    { yr:"2029–30", gate:"GATE score window: Jan–Feb 2029", phd:"PhD Autumn interviews: May–Jun 2029 · Spring: Nov–Dec 2029", tech:"M.Tech intake: Jul 2029" },
+    { yr:"2030–31", gate:"GATE score window: Jan–Feb 2030", phd:"PhD Autumn interviews: May–Jun 2030 · Spring: Nov–Dec 2030", tech:"M.Tech intake: Jul 2030" }
+  ];
+  const selectorEl = document.getElementById('cycleSelector');
+  const panelsEl = document.getElementById('cyclePanels');
+  cycles.forEach((c,i)=>{
+    const b = document.createElement('button');
+    b.textContent = c.yr;
+    b.className = i===0 ? 'active' : '';
+    b.addEventListener('click', ()=>{
+      document.querySelectorAll('#cycleSelector button').forEach(x=>x.classList.remove('active'));
+      document.querySelectorAll('.cycle-panel').forEach(x=>x.classList.remove('active'));
+      b.classList.add('active');
+      document.getElementById('panel-'+i).classList.add('active');
+    });
+    selectorEl.appendChild(b);
+
+    const p = document.createElement('div');
+    p.className = 'cycle-panel' + (i===0 ? ' active' : '');
+    p.id = 'panel-'+i;
+    p.innerHTML = `
+      <div class="cycle-box"><span class="lbl">GATE / M.Tech</span>${c.gate}</div>
+      <div class="cycle-box"><span class="lbl">Ph.D. Cycle</span>${c.phd}</div>
+      <div class="cycle-box"><span class="lbl">Semester Intake</span>${c.tech}</div>
+    `;
+    panelsEl.appendChild(p);
+  });
+</script>
+</body>
+</html>
