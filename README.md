@@ -1,8 +1,7 @@
 
 <div align="center">
 
-<img src="pixel-banner(1).gif" alt="JBMSHST pixel banner" width="100%">
-
+<img src="pixel-banner.gif" alt="JBMSHST pixel banner" width="100%">
 
 **One department page, two designs. Pick your vibe.**
 
