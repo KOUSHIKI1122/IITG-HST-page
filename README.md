@@ -2,7 +2,7 @@
 <div align="center">
 
 <img src="pixel-banner.gif" alt="JBMSHST pixel banner" width="100%">
-type=waving&color=gradient&customColorList=12,20,24&height=190&section=header&text=JBMSHST%20Portal&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=IIT%20Guwahati%20%C2%B7%20Health%20Sciences%20%26%20Technology&descAlignY=60&descSize=16)
+
 
 **One department page, two designs. Pick your vibe.**
 
