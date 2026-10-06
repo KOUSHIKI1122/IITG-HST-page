@@ -7,8 +7,8 @@ Department web page designed in two styles, one playful and one professional.
 
 | Version | Style | Live page |
 |---------|-------|-----------|
-| Arcade | Retro game-style pixel look | https://koushiki1122.github.io/IITG-HST-page/arcade.html |
-| Formal | Clean look in professional colours | https://koushiki1122.github.io/IITG-HST-page/formal.html |
+| Arcade | Retro game-style pixel look | https://jbmshst.netlify.app/ |
+| Formal | Clean look in professional colours | https://jbmshst.netlify.app/|
 
 ## Files
 
