@@ -36,15 +36,7 @@ A redesign of the web page for the **Jyoti & Bhupat Mehta School of Health Scien
 | ![Arcade](assets/arcade.png) | ![Formal](assets/formal.png) |
 -->
 
-## Features
 
-- 📢 Scrolling notice ticker with clickable announcements
-- 🎓 Admissions panel with Ph.D., GATE and MoU tabs
-- 📰 Tabbed publications, news and events cards
-- 👩‍🔬 Faculty cards with email and Scholar links
-- 🗓️ Academic-cycle timeline selector
-- 🔗 Quick-access tiles and a full footer of student and research resources
-- 📱 Responsive layout
 
 ## Run locally
 
@@ -59,7 +51,7 @@ Open `arcade.html` or `formal.html` in any browser. No build step or dependencie
 
 Both pages are hosted on Netlify. Any file named `index.html` is served as the homepage.
 
-## ⚠️ Note
+##  Note
 
 Content is based on the official [JBMSHST site](https://www.iitg.ac.in/shst/index.php). Always confirm admission dates and notices on the official portal.
 
