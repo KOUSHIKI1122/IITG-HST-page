@@ -38,17 +38,6 @@ A redesign of the web page for the **Jyoti & Bhupat Mehta School of Health Scien
 
 
 
-## Run locally
-
-```bash
-git clone https://github.com/KOUSHIKI1122/IITG-HST-page.git
-cd IITG-HST-page
-```
-
-Open `arcade.html` or `formal.html` in any browser. No build step or dependencies.
-
-## Deployment
-
 Both pages are hosted on Netlify. Any file named `index.html` is served as the homepage.
 
 ##  Note
